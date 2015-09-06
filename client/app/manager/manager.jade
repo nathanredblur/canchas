@@ -1,0 +1,11 @@
+div(ng-include='"components/navbar/navbar.html"')
+.container
+  p
+    | The delete manager and manager index api routes are restricted to users with the 'admin' role.
+  ul.list-group
+    li.list-group-item(ng-repeat='manager in managers')
+      strong {{manager.name}}
+      br
+      span.text-muted {{manager.email}}
+      a.trash(ng-click='delete(manager)')
+        span.glyphicon.glyphicon-trash.pull-right
