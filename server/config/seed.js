@@ -47,3 +47,19 @@ User.find({}).remove(function() {
     }
   );
 });
+
+var Manager = require('../api/manager/manager.model');
+Manager.find({}).remove(function() {
+  Manager.create({
+    slug: 'canchita',
+    name : 'Canchita pollos hermanos',
+    info : 'si, la de Breaking Bad'
+  }, {
+    slug: 'canchita2',
+    name : 'Canchita chita',
+    info : 'otra cancha y ya'
+  }, function() {
+      console.log('finished populating manager');
+    }
+  );
+});

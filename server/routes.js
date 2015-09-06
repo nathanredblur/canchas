@@ -4,7 +4,11 @@
 
 'use strict';
 
+// API to expose
+require('./api/manager');
+
 var errors = require('./components/errors');
+var baucis = require('baucis');
 var path = require('path');
 
 module.exports = function(app) {
@@ -12,6 +16,9 @@ module.exports = function(app) {
   // Insert routes below
   app.use('/api/things', require('./api/thing'));
   app.use('/api/users', require('./api/user'));
+
+  // Add baucis routes
+  app.use('/api', baucis());
 
   app.use('/auth', require('./auth'));
 
